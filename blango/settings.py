@@ -16,6 +16,7 @@ from configurations import Configuration
 import dj_database_url
 from configurations import values
 
+
 class Dev(Configuration):
 
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -138,6 +139,13 @@ class Dev(Configuration):
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+    PASSWORD_HASHERS = [
+      'django.contrib.auth.hashers.Argon2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+      'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+  ]
+
     LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -176,6 +184,7 @@ class Dev(Configuration):
         "level": "DEBUG",
     },
 }
+
 
 class Prod(Dev):
     DEBUG = False
