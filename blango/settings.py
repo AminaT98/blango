@@ -31,6 +31,10 @@ class Dev(Configuration):
     ACCOUNT_ACTIVATION_DAYS = 7
 
 
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
+
+
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -73,7 +77,8 @@ class Dev(Configuration):
         'rest_framework',
         'rest_framework.authtoken',
         'drf_yasg',
-        'django_filters'
+        'django_filters',
+        'versatileimagefield'
     ]
 
     MIDDLEWARE = [
