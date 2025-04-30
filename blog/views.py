@@ -4,6 +4,7 @@ from blog.models import Post
 from blog.forms import CommentForm
 import logging
 
+from django.urls import reverse
 
 logger = logging.getLogger(__name__)
 
@@ -43,4 +44,6 @@ def get_ip(request):
 
 
 def post_table(request):
-    return render(request, "blog/post-table.html")
+    return render(
+        request, "blog/post-table.html", {"post_list_url": reverse("post-list")}
+    )
